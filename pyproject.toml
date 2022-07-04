@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "bitbantr"
+version = "0.1.0"
+description = "bitbantr Pyramid monolith."
+authors = ["Ryan Sparfven <rsparfven@bitbantr.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+plaster-pastedeploy = "^0.7"
+pyramid = "^2.0"
+pyramid-jinja2 = "^2.10"
+pyramid-retry = "^2.1.1"
+pyramid-tm = "^2.5"
+alembic = "^1.8.0"
+SQLAlchemy = "^1.4.39"
+transaction = "^3.0.1"
+"zope.sqlalchemy" = "^1.6"
+psycopg2 = "^2.9.3"
+social-auth-app-pyramid = "^1.0.0"
+
+[tool.poetry.dev-dependencies]
+pyramid-debugtoolbar = "^4.9"
+waitress = "^2.1.2"
+WebTest = "^3.0.0"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+selenium = "^4.3.0"
+
+[tool.poetry.plugins."paste.app_factory"]
+main = "bitbantr:main"
+
+[tool.poetry.plugins."console_scripts"]
+initialize_bitbantr_db = "bitbantr.scripts.initialize_db:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
